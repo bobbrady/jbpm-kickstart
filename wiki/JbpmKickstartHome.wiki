@@ -1,7 +1,7 @@
 #labels Featured,Phase-Deploy
 = jBPM Kickstart Project =
 
-jBPM Kickstart can be used to rapidly et you up and running applications with jBPM.  Some of the features include:
+jBPM Kickstart can be used to rapidly get you up and running applications with jBPM.  Some of the features include:
   * Standalone Eclipse WTP project format ("look ma, no configuration!")
   * Working code with JUnit tests
   * Integration with Spring
