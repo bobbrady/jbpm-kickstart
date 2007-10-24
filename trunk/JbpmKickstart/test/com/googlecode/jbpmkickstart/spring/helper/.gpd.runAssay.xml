@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root-container name="runAssay" width="798" height="551">
+  <node name="Start Assay Run" x="152" y="8" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Setup Assay" x="152" y="80" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="fork1" x="93" y="148" width="252" height="24">
+    <edge>
+      <label x="-118" y="-20"/>
+    </edge>
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Run Gene Expression Plates" x="0" y="246" width="194" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Run Cell Morphology Plates" x="252" y="243" width="192" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="displaysRulesPattern" x="285" y="318" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+      <bendpoint w1="113" h1="-2" w2="246" h2="236"/>
+      <bendpoint w1="112" h1="-238" w2="245" h2="0"/>
+    </edge>
+    <edge>
+      <label x="-31" y="-20"/>
+    </edge>
+  </node>
+  <node name="join1" x="84" y="382" width="252" height="24">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="Cleanup Assay" x="143" y="438" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="End Assay Run" x="145" y="506" width="132" height="36"/>
+</root-container>
