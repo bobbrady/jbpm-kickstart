@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition  name="runAssay"
+	xmlns="urn:jbpm.org:jpdl-3.2" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:jbpm.org:jpdl-3.2 http://docs.jboss.org/jbpm/xsd/jpdl-3.2.xsd">
+
+	<start-state name="Start Assay Run">
+		<transition to="Setup Assay"></transition>
+	</start-state>
+
+	<task-node name="Setup Assay">
+		<task name="Configure assays according to protocols"></task>
+		<event type="node-leave"> 
+      		<action class="com.googlecode.jbpmkickstart.spring.helper.SetupAssayActionHandler" />
+      	</event>
+		<transition to="fork1"></transition>
+	</task-node>
+
+	<fork name="fork1">
+		<transition to="Run Gene Expression Plates" name="Gene Expression Track"></transition>
+		<transition to="Run Cell Morphology Plates" name="Morphology Track"></transition>
+	</fork>
+
+	<task-node name="Run Gene Expression Plates">
+		<task name="Load plates into cassettes and move to robot"></task>
+		<transition to="join1"></transition>
+	</task-node>
+
+	<task-node name="Run Cell Morphology Plates">
+		<task name="Load plates into microscopy robot"></task>
+		<transition to="displaysRulesPattern"></transition>
+	</task-node>
+
+	<decision name="displaysRulesPattern">
+		<handler class="com.googlecode.jbpmkickstart.spring.helper.MorphologyPatternDecisionHandler"/>
+		<transition to="Setup Assay" name="true"></transition>
+		<transition to="join1" name="false"></transition>
+	</decision>
+
+	<join name="join1">
+		<transition to="Cleanup Assay"></transition>
+	</join>
+
+	<task-node name="Cleanup Assay">
+		<task name="Move plates back to home freezer and retire spent plates">
+			<assignment class="com.googlecode.jbpmkickstart.spring.helper.CleanupAssayAssignmentHandler" />
+      	</task>
+		<transition to="End Assay Run"></transition>
+	</task-node>
+
+
+	<end-state name="End Assay Run"></end-state>
+
+</process-definition>

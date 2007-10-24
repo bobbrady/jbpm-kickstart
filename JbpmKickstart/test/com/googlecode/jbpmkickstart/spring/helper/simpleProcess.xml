@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process-definition name='simple process'
+	xmlns="urn:jbpm.org:jpdl-3.2" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:jbpm.org:jpdl-3.2 http://docs.jboss.org/jbpm/xsd/jpdl-3.2.xsd">
+	<start-state name='start'>
+		<transition to='middle' />
+	</start-state>
+	<state name='middle'>
+		<transition to='end' />
+	</state>
+	<end-state name='end' />
+</process-definition>
